@@ -49,7 +49,8 @@ view: forecasting {
     label: "Forecast"
     description: "Forecast period date — the day the forecast/budget value applies to. Use weekly/monthly timeframes for retail planning."
     type: time
-    timeframes: [raw, date, week, month, quarter, year, fiscal_month, fiscal_quarter, fiscal_year]
+    timeframes: [raw, date, week, month, quarter, year, fiscal_quarter, fiscal_year]
+    # timeframes: [raw, date, week, month, quarter, year, fiscal_month, fiscal_quarter, fiscal_year]
     convert_tz: no
     datatype: timestamp
     sql: ${TABLE}.CommonDate ;;

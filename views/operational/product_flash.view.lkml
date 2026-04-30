@@ -9,7 +9,7 @@ include: "/views/master/dim_location_franchise.view.lkml"
 
 view: product_flash {
   derived_table: {
-    persist_with: inventory_refresh
+    # persist_with: inventory_refresh
     sql:
       WITH ref_date AS (
         SELECT COALESCE(DATE({% date_start as_of_date %}), CURRENT_DATE()) AS d

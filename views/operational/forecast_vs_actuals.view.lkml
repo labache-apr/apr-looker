@@ -106,7 +106,8 @@ view: forecast_vs_actuals {
     label: "Business"
     description: "Business date — the day actual sales were rung up and forecast/budget rows are aligned to."
     type: time
-    timeframes: [raw, date, week, month, quarter, year, fiscal_month, fiscal_quarter, fiscal_year]
+    timeframes: [raw, date, week, month, quarter, year, fiscal_quarter, fiscal_year]
+    # timeframes: [raw, date, week, month, quarter, year, fiscal_month, fiscal_quarter, fiscal_year]
     convert_tz: no
     datatype: date
     sql: ${TABLE}.date ;;
