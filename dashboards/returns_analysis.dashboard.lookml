@@ -4,7 +4,6 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: "Deep dive into return patterns, problem areas, and return rates by location, department, and product."
-  preferred_slug: returns-analysis
 
   filters:
     - name: date_range
@@ -34,7 +33,7 @@
 
     - title: "Return Amount"
       name: return_amt
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.return_amount]
@@ -49,7 +48,7 @@
 
     - title: "Return Quantity"
       name: return_qty
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.return_quantity]
@@ -64,7 +63,7 @@
 
     - title: "Return Rate"
       name: return_rate
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.return_rate]
@@ -81,7 +80,7 @@
 
     - title: "Return Trend"
       name: return_trend
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_line
       fields: [sales_receipt.date_part, sales_receipt.return_amount, sales_receipt.return_rate]
@@ -100,7 +99,7 @@
 
     - title: "Returns by Department"
       name: returns_by_dept
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_bar
       fields: [sales_receipt.department, sales_receipt.return_amount, sales_receipt.return_rate]
@@ -119,7 +118,7 @@
 
     - title: "Returns by Location"
       name: returns_by_location
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_bar
       fields: [sales_receipt.location_name, sales_receipt.return_amount, sales_receipt.return_rate]
@@ -138,7 +137,7 @@
 
     - title: "Top 20 Returned Items"
       name: top_returns
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_grid
       fields: [sales_receipt.style, sales_receipt.description1, sales_receipt.department,

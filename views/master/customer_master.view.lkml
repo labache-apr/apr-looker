@@ -3,7 +3,7 @@
 # ══════════════════════════════════════════════════════════════
 
 view: customer_master {
-  sql_table_name: `aefc-prod-us-twc-b1bc.external_datamart_1.Customer_view` ;;
+  sql_table_name: `@{schema_name}.external_datamart_1.Customer_view` ;;
 
   # ── Identifiers ──
 
@@ -198,7 +198,7 @@ view: customer_contacts {
         ct.EMail     AS contact_email,
         ct.Phone     AS contact_phone,
         ct.Title     AS contact_title
-      FROM `aefc-prod-us-twc-b1bc.external_datamart_1.Customer_view` c,
+      FROM `@{schema_name}.external_datamart_1.Customer_view` c,
            UNNEST(c.contacts) AS ct
     ;;
   }
@@ -229,7 +229,7 @@ view: customer_addresses {
         a.State       AS state,
         a.PostalCode  AS postal_code,
         a.Country     AS country
-      FROM `aefc-prod-us-twc-b1bc.external_datamart_1.Customer_view` c,
+      FROM `@{schema_name}.external_datamart_1.Customer_view` c,
            UNNEST(c.addresses) AS a
     ;;
   }

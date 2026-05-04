@@ -4,7 +4,6 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: "Mobile-optimized executive view: headline KPIs and trend at a glance."
-  preferred_slug: mobile-executive-overview
 
   filters:
     - name: date_range
@@ -26,7 +25,7 @@
 
     - title: "Net Sales"
       name: e_net_sales
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.total_net_sales]
@@ -42,7 +41,7 @@
 
     - title: "Margin"
       name: e_margin
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.total_margin]
@@ -56,7 +55,7 @@
 
     - title: "Margin %"
       name: e_margin_pct
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.margin_percent]
@@ -70,7 +69,7 @@
 
     - title: "Transactions"
       name: e_transactions
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.transaction_count]
@@ -84,7 +83,7 @@
 
     - title: "ATV"
       name: e_atv
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.avg_transaction_value]
@@ -100,11 +99,12 @@
 
     - title: "Monthly Sales & Margin"
       name: e_monthly_trend
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_line
-      fields: [sales_receipt.retail_month_desc, sales_receipt.total_net_sales, sales_receipt.total_margin]
-      sorts: [sales_receipt.retail_month_desc]
+      fields: [sales_receipt.total_net_sales, sales_receipt.total_margin]
+      # fields: [sales_receipt.retail_month_desc, sales_receipt.total_net_sales, sales_receipt.total_margin]
+      # sorts: [sales_receipt.retail_month_desc]
       x_axis_gridlines: false
       listen:
         date_range: sales_receipt.date_part
@@ -118,7 +118,7 @@
 
     - title: "Sales by Location"
       name: e_by_location
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_bar
       fields: [sales_receipt.location_name, sales_receipt.total_net_sales]
@@ -135,7 +135,7 @@
 
     - title: "Sales by Department"
       name: e_by_department
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_bar
       fields: [sales_receipt.department, sales_receipt.total_net_sales, sales_receipt.margin_percent]

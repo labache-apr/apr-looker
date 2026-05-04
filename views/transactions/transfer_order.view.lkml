@@ -10,7 +10,7 @@ include: "/views/custom_fields/transfer_order_custom_fields.view.lkml"
 
 view: transfer_order {
   extends: [item_struct, item_style_custom_fields, item_sku_custom_fields, employee_struct, transfer_order_custom_fields]
-  sql_table_name: `aefc-prod-us-twc-b1bc.external_datamart_1.TransferOrder_view` ;;
+  sql_table_name: `@{schema_name}.external_datamart_1.TransferOrder_view` ;;
 
   dimension: date_part {
     hidden: yes
@@ -137,7 +137,7 @@ view: transfer_order {
 # and cannot extend location_struct.
 
 view: transfer_order_source_location {
-  sql_table_name: `aefc-prod-us-twc-b1bc.external_datamart_1.TransferOrder_view` ;;
+  sql_table_name: `@{schema_name}.external_datamart_1.TransferOrder_view` ;;
 
   dimension: location_id    { group_label: "Source Location"  description: "Internal identifier of the location shipping the transfer order (the 'from' location)." type: string sql: ${TABLE}.SourceLocation.LocationId ;; }
   dimension: location_code  { group_label: "Source Location"  description: "Short code (e.g. store number) of the source location." type: string sql: ${TABLE}.SourceLocation.LocationCode ;; }
@@ -148,7 +148,7 @@ view: transfer_order_source_location {
 }
 
 view: transfer_order_target_location {
-  sql_table_name: `aefc-prod-us-twc-b1bc.external_datamart_1.TransferOrder_view` ;;
+  sql_table_name: `@{schema_name}.external_datamart_1.TransferOrder_view` ;;
 
   dimension: location_id    { group_label: "Target Location"  description: "Internal identifier of the location receiving the transfer order (the 'to' location)." type: string sql: ${TABLE}.TargetLocation.LocationId ;; }
   dimension: location_code  { group_label: "Target Location"  description: "Short code (e.g. store number) of the target location." type: string sql: ${TABLE}.TargetLocation.LocationCode ;; }

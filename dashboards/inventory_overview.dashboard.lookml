@@ -4,7 +4,6 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: "Executive view of inventory health, stock levels, stockout rates, and reorder needs."
-  preferred_slug: inventory-overview
 
   filters:
     - name: location
@@ -29,7 +28,7 @@
 
     - title: "Total On Hand Qty"
       name: on_hand_qty
-      model: twc_aefc
+      model: "@{model_name}"
       explore: location_availability
       type: single_value
       fields: [location_availability.total_on_hand]
@@ -43,7 +42,7 @@
 
     - title: "Available to Sell"
       name: ats
-      model: twc_aefc
+      model: "@{model_name}"
       explore: location_availability
       type: single_value
       fields: [location_availability.total_ats]
@@ -57,7 +56,7 @@
 
     - title: "SKU-Location Count"
       name: sku_locations
-      model: twc_aefc
+      model: "@{model_name}"
       explore: location_availability
       type: single_value
       fields: [location_availability.sku_location_count]
@@ -71,7 +70,7 @@
 
     - title: "Stockout Count"
       name: stockouts
-      model: twc_aefc
+      model: "@{model_name}"
       explore: location_availability
       type: single_value
       fields: [location_availability.stockout_count]
@@ -85,7 +84,7 @@
 
     - title: "Stockout Rate"
       name: stockout_rate
-      model: twc_aefc
+      model: "@{model_name}"
       explore: location_availability
       type: single_value
       fields: [location_availability.stockout_rate]
@@ -101,7 +100,7 @@
 
     - title: "Stock by Location"
       name: stock_by_location
-      model: twc_aefc
+      model: "@{model_name}"
       explore: location_availability
       type: looker_bar
       fields: [location_availability.location_name, location_availability.total_on_hand,
@@ -120,7 +119,7 @@
 
     - title: "Stock by Department"
       name: stock_by_dept
-      model: twc_aefc
+      model: "@{model_name}"
       explore: location_availability
       type: looker_bar
       fields: [location_availability.department, location_availability.total_on_hand,
@@ -139,7 +138,7 @@
 
     - title: "Inventory Status Breakdown"
       name: status_breakdown
-      model: twc_aefc
+      model: "@{model_name}"
       explore: location_availability
       type: looker_grid
       fields: [location_availability.location_name, location_availability.total_on_hand,
@@ -160,7 +159,7 @@
 
     - title: "Items Currently Out of Stock"
       name: stockout_items
-      model: twc_aefc
+      model: "@{model_name}"
       explore: location_availability
       type: looker_grid
       fields: [location_availability.style, location_availability.description1,
@@ -197,7 +196,7 @@
 
     - title: "GMROI (28d)"
       name: gmroi_28d
-      model: twc_aefc
+      model: "@{model_name}"
       explore: inventory
       type: single_value
       fields: [inventory.gmroi]
@@ -213,7 +212,7 @@
 
     - title: "Inventory Turn (28d)"
       name: turn_28d
-      model: twc_aefc
+      model: "@{model_name}"
       explore: inventory
       type: single_value
       fields: [inventory.inventory_turn_ratio]
@@ -229,7 +228,7 @@
 
     - title: "Sell-Through (28d)"
       name: sell_through_28d
-      model: twc_aefc
+      model: "@{model_name}"
       explore: inventory
       type: single_value
       fields: [inventory.sell_through_rate]
@@ -245,7 +244,7 @@
 
     - title: "WOS (28d)"
       name: wos_28d
-      model: twc_aefc
+      model: "@{model_name}"
       explore: inventory
       type: single_value
       fields: [inventory.weeks_of_supply]
@@ -261,7 +260,7 @@
 
     - title: "OOS Rate (28d)"
       name: oos_28d
-      model: twc_aefc
+      model: "@{model_name}"
       explore: inventory
       type: single_value
       fields: [inventory.out_of_stock_rate]

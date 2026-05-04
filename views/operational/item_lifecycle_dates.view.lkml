@@ -15,7 +15,7 @@ view: item_lifecycle_dates {
           item.ItemId    AS item_id,
           MIN(Date_Part) AS first_date,
           MAX(Date_Part) AS last_date
-        FROM `aefc-prod-us-twc-b1bc.external_datamart_1.SalesReceipt_view`
+        FROM `@{schema_name}.external_datamart_1.SalesReceipt_view`
         WHERE item.ItemId IS NOT NULL
         GROUP BY item.ItemId
       ),
@@ -24,7 +24,7 @@ view: item_lifecycle_dates {
           item.ItemId    AS item_id,
           MIN(Date_Part) AS first_date,
           MAX(Date_Part) AS last_date
-        FROM `aefc-prod-us-twc-b1bc.external_datamart_1.Purchase_view`
+        FROM `@{schema_name}.external_datamart_1.Purchase_view`
         WHERE item.ItemId IS NOT NULL
         GROUP BY item.ItemId
       ),
@@ -33,7 +33,7 @@ view: item_lifecycle_dates {
           item.ItemId    AS item_id,
           MIN(Date_Part) AS first_date,
           MAX(Date_Part) AS last_date
-        FROM `aefc-prod-us-twc-b1bc.external_datamart_1.PurchaseOrder_view`
+        FROM `@{schema_name}.external_datamart_1.PurchaseOrder_view`
         WHERE item.ItemId IS NOT NULL
         GROUP BY item.ItemId
       ),
@@ -42,7 +42,7 @@ view: item_lifecycle_dates {
           item.ItemId    AS item_id,
           MIN(Date_Part) AS first_date,
           MAX(Date_Part) AS last_date
-        FROM `aefc-prod-us-twc-b1bc.external_datamart_1.Transfer_view`
+        FROM `@{schema_name}.external_datamart_1.Transfer_view`
         WHERE item.ItemId IS NOT NULL
         GROUP BY item.ItemId
       ),

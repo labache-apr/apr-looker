@@ -4,7 +4,6 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: "Mobile-optimized sales view: stacked KPIs and full-width charts for phone screens."
-  preferred_slug: mobile-sales-performance
 
   filters:
     - name: date_range
@@ -34,7 +33,7 @@
 
     - title: "Net Sales"
       name: m_net_sales
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.total_net_sales]
@@ -49,7 +48,7 @@
 
     - title: "Margin"
       name: m_margin
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.total_margin]
@@ -64,7 +63,7 @@
 
     - title: "Margin %"
       name: m_margin_pct
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.margin_percent]
@@ -79,7 +78,7 @@
 
     - title: "Transactions"
       name: m_transactions
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.transaction_count]
@@ -94,7 +93,7 @@
 
     - title: "ATV"
       name: m_atv
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.avg_transaction_value]
@@ -109,7 +108,7 @@
 
     - title: "UPT"
       name: m_upt
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.avg_units_per_transaction]
@@ -126,7 +125,7 @@
 
     - title: "Daily Net Sales"
       name: m_daily_trend
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_line
       fields: [sales_receipt.transacted_date_date, sales_receipt.total_net_sales]
@@ -147,7 +146,7 @@
 
     - title: "Top Locations"
       name: m_top_locations
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_bar
       fields: [sales_receipt.location_name, sales_receipt.total_net_sales]
@@ -165,7 +164,7 @@
 
     - title: "Top Departments"
       name: m_top_departments
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_bar
       fields: [sales_receipt.department, sales_receipt.total_net_sales]
@@ -183,7 +182,7 @@
 
     - title: "Top Brands"
       name: m_top_brands
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_bar
       fields: [sales_receipt.brand, sales_receipt.total_net_sales]

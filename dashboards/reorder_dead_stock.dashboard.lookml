@@ -4,7 +4,6 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: "Identify items needing reorder based on stock levels and sales velocity, plus slow-moving and dead stock for markdown or discontinuation."
-  preferred_slug: reorder-dead-stock
 
   filters:
     - name: location
@@ -34,7 +33,7 @@
 
     - title: "Items Needing Reorder (Low Stock, Active Sellers)"
       name: reorder_items
-      model: twc_aefc
+      model: "@{model_name}"
       explore: location_availability
       type: looker_grid
       fields: [location_availability.style, location_availability.description1,
@@ -60,7 +59,7 @@
 
     - title: "Low Stock Items by Department"
       name: low_stock_dept
-      model: twc_aefc
+      model: "@{model_name}"
       explore: location_availability
       type: looker_bar
       fields: [location_availability.department, location_availability.stockout_count]
@@ -76,7 +75,7 @@
 
     - title: "Low Stock Items by Location"
       name: low_stock_loc
-      model: twc_aefc
+      model: "@{model_name}"
       explore: location_availability
       type: looker_bar
       fields: [location_availability.location_name, location_availability.stockout_count]
@@ -94,7 +93,7 @@
 
     - title: "Dead Stock (On Hand, Zero Recent Sales)"
       name: dead_stock
-      model: twc_aefc
+      model: "@{model_name}"
       explore: inventory
       type: looker_grid
       fields: [item_master.style, item_master.description1, item_master.department,
@@ -120,7 +119,7 @@
 
     - title: "Slow Moving Stock (Low Sales Velocity)"
       name: slow_movers
-      model: twc_aefc
+      model: "@{model_name}"
       explore: inventory
       type: looker_grid
       fields: [item_master.style, item_master.description1, item_master.department,
@@ -146,7 +145,7 @@
 
     - title: "Dead Stock Value by Department"
       name: dead_stock_value
-      model: twc_aefc
+      model: "@{model_name}"
       explore: inventory
       type: looker_bar
       fields: [item_master.department, inventory.total_on_hand_cost]
@@ -165,7 +164,7 @@
 
     - title: "Slow Moving Value by Department"
       name: slow_value
-      model: twc_aefc
+      model: "@{model_name}"
       explore: inventory
       type: looker_bar
       fields: [item_master.department, inventory.total_on_hand_cost]

@@ -12,7 +12,7 @@ include: "/views/custom_fields/adjustment_custom_fields.view.lkml"
 
 view: adjustment {
   extends: [item_struct, item_style_custom_fields, item_sku_custom_fields, location_struct, employee_struct, retail_calendar, adjustment_custom_fields]
-  sql_table_name: `aefc-prod-us-twc-b1bc.external_datamart_1.Adjustment_view` ;;
+  sql_table_name: `@{schema_name}.external_datamart_1.Adjustment_view` ;;
 
   dimension: date_part {
     hidden: yes

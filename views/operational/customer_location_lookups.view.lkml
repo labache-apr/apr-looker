@@ -4,7 +4,7 @@
 # ══════════════════════════════════════════════════════════════
 
 view: last_receipt_location {
-  sql_table_name: `aefc-prod-us-twc-b1bc.bi_star.dim_Location_view` ;;
+  sql_table_name: `@{schema_name}.bi_star.dim_Location_view` ;;
 
   dimension: location_id {
     group_label: "Last Receipt Location"
@@ -32,7 +32,7 @@ view: last_receipt_location {
 }
 
 view: preferred_location {
-  sql_table_name: `aefc-prod-us-twc-b1bc.bi_star.dim_Location_view` ;;
+  sql_table_name: `@{schema_name}.bi_star.dim_Location_view` ;;
 
   dimension: location_id {
     group_label: "Preferred Location"

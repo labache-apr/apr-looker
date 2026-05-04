@@ -15,7 +15,7 @@ include: "/views/custom_fields/customer_custom_fields.view.lkml"
 
 view: sales_receipt {
   extends: [item_struct, item_style_custom_fields, item_sku_custom_fields, location_struct, location_custom_fields, customer_struct, customer_custom_fields, employee_struct, retail_calendar, sale_receipt_custom_fields, sale_line_custom_fields]
-  sql_table_name: `aefc-prod-us-twc-b1bc.external_datamart_1.SalesReceipt_view` ;;
+  sql_table_name: `@{schema_name}.external_datamart_1.SalesReceipt_view` ;;
 
   # ── Top-Level Columns ──
 
@@ -95,10 +95,10 @@ view: sales_receipt {
     type: number
     sql: ${TABLE}.sale.UniversalNo ;;
     value_format_name: id
-    link: {
-      label: "View Receipt Detail"
-      url: "/dashboards/twc_aefc::receipt_detail?universal_no={{ value | url_encode }}{% if _filters['date_range'] %}&date_range={{ _filters['date_range'] | url_encode }}{% endif %}"
-    }
+    # link: {
+    #   label: "View Receipt Detail"
+    #   url: "/dashboards/twc_aefc::receipt_detail?universal_no={{ value | url_encode }}{% if _filters['date_range'] %}&date_range={{ _filters['date_range'] | url_encode }}{% endif %}"
+    # }
   }
 
   dimension: receipt_no {
@@ -396,7 +396,7 @@ view: sales_receipt_payments {
         p.CardTypeDescription AS card_type,
         p.CurrencyCode        AS currency_code,
         p.ChangeAmount        AS change_amount
-      FROM `aefc-prod-us-twc-b1bc.external_datamart_1.SalesReceipt_view` sr,
+      FROM `@{schema_name}.external_datamart_1.SalesReceipt_view` sr,
            UNNEST(sr.sale.Payments) AS p
     ;;
   }
@@ -406,10 +406,10 @@ view: sales_receipt_payments {
     sql: ${TABLE}.universal_no ;;
     value_format_name: id
     hidden: yes
-    link: {
-      label: "View Receipt Detail"
-      url: "/dashboards/twc_aefc::receipt_detail?universal_no={{ value | url_encode }}{% if _filters['date_range'] %}&date_range={{ _filters['date_range'] | url_encode }}{% endif %}"
-    }
+    # link: {
+    #   label: "View Receipt Detail"
+    #   url: "/dashboards/twc_aefc::receipt_detail?universal_no={{ value | url_encode }}{% if _filters['date_range'] %}&date_range={{ _filters['date_range'] | url_encode }}{% endif %}"
+    # }
   }
 
   dimension: receipt_no {

@@ -16,7 +16,7 @@
 
 view: forecast_vs_actuals {
   derived_table: {
-    datagroup_trigger: daily_refresh
+    # datagroup_trigger: daily_refresh
     sql:
       WITH forecast_agg AS (
         SELECT
@@ -30,10 +30,10 @@ view: forecast_vs_actuals {
           SUM(BudgetGm)                 AS budget_gm,
           AVG(BudgetUpt)                AS budget_upt,
           AVG(BudgetAtv)                AS budget_atv
-        FROM `aefc-prod-us-twc-b1bc.bi_star.append_window_dbo_Forecasting_view`
+        FROM `@{schema_name}.bi_star.append_window_dbo_Forecasting_view`
         WHERE PathLevelDepth = (
           SELECT MAX(PathLevelDepth)
-          FROM `aefc-prod-us-twc-b1bc.bi_star.append_window_dbo_Forecasting_view`
+          FROM `@{schema_name}.bi_star.append_window_dbo_Forecasting_view`
         )
         GROUP BY 1, 2
       ),
@@ -47,7 +47,7 @@ view: forecast_vs_actuals {
           SUM(sr.sale.COGS)                           AS actual_cogs,
           SUM(sr.sale.Qty)                            AS actual_units,
           COUNT(DISTINCT sr.sale.UniversalNo)         AS actual_transactions
-        FROM `aefc-prod-us-twc-b1bc.external_datamart_1.SalesReceipt_view` sr
+        FROM `@{schema_name}.external_datamart_1.SalesReceipt_view` sr
         WHERE sr.location.LocationId IS NOT NULL
           AND sr.location.LocationId != ''
           AND sr.Date_Part >= DATE_SUB(CURRENT_DATE(), INTERVAL 3 YEAR)

@@ -43,7 +43,7 @@ view: product_flash {
           -- (varies by location/modelstockgroup/modelstockperiod/item)
           CAST(NULL AS INT64)                   AS reorder_min,
           CAST(NULL AS INT64)                   AS reorder_max
-        FROM `aefc-prod-us-twc-b1bc.external_datamart_1.LocationAvailability_view` la
+        FROM `@{schema_name}.external_datamart_1.LocationAvailability_view` la
         WHERE 1=1
           AND {% condition plu %} la.item.PLU {% endcondition %}
         GROUP BY 1, 2, 3, 4
@@ -77,7 +77,7 @@ view: product_flash {
           -- Date milestones
           MIN(DATE(sr.ReceiptDateTime))          AS first_sale_date,
           MAX(DATE(sr.ReceiptDateTime))          AS last_sale_date
-        FROM `aefc-prod-us-twc-b1bc.external_datamart_1.SalesReceiptJournal_view` sr
+        FROM `@{schema_name}.external_datamart_1.SalesReceiptJournal_view` sr
         CROSS JOIN ref_date rd
         WHERE DATE(sr.ReceiptDateTime) <= rd.d
           AND DATE(sr.ReceiptDateTime) >= DATE_TRUNC(DATE_SUB(rd.d, INTERVAL 1 YEAR), YEAR)

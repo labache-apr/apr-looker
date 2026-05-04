@@ -4,7 +4,6 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: "Deep dive into product, department, brand, and vendor level performance with margin analysis."
-  preferred_slug: product-performance
 
   filters:
     - name: date_range
@@ -42,7 +41,7 @@
 
     - title: "Sales by Department"
       name: by_department
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_bar
       fields: [sales_receipt.department, sales_receipt.total_net_sales]
@@ -62,7 +61,7 @@
 
     - title: "Margin % by Department"
       name: margin_by_dept
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_bar
       fields: [sales_receipt.department, sales_receipt.margin_percent]
@@ -82,7 +81,7 @@
 
     - title: "Sales by Class"
       name: by_class
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_bar
       fields: [sales_receipt.class, sales_receipt.total_net_sales, sales_receipt.margin_percent]
@@ -102,7 +101,7 @@
 
     - title: "Top 15 Brands"
       name: top_brands
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_bar
       fields: [sales_receipt.brand, sales_receipt.total_net_sales, sales_receipt.total_quantity]
@@ -122,7 +121,7 @@
 
     - title: "Top 25 Styles by Net Sales"
       name: top_styles
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_grid
       fields: [sales_receipt.style, sales_receipt.description1, sales_receipt.department,
@@ -145,7 +144,7 @@
 
     - title: "Vendor Performance"
       name: vendor_perf
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_grid
       fields: [sales_receipt.primary_vendor, sales_receipt.total_net_sales, sales_receipt.total_quantity,
@@ -167,7 +166,7 @@
 
     - title: "Bottom 20 Styles by Margin %"
       name: bottom_margin
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_grid
       fields: [sales_receipt.style, sales_receipt.description1, sales_receipt.department,

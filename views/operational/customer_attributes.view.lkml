@@ -6,7 +6,7 @@
 # ══════════════════════════════════════════════════════════════
 
 view: customer_attributes {
-  sql_table_name: `aefc-prod-us-twc-b1bc.bi_star.CHQCustomerAttributes` ;;
+  sql_table_name: `@{schema_name}.bi_star.CHQCustomerAttributes` ;;
 
   # ── Identifiers ──
 

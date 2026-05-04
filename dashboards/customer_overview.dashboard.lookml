@@ -4,7 +4,6 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: "Executive view of customer base health, lifetime value distribution, and key customer metrics."
-  preferred_slug: customer-overview
 
   filters:
     - name: customer_type
@@ -29,7 +28,7 @@
 
     - title: "Total Customers"
       name: total_customers
-      model: twc_aefc
+      model: "@{model_name}"
       explore: customer_performance
       type: single_value
       fields: [customer_performance.customer_count]
@@ -43,7 +42,7 @@
 
     - title: "Active Customers"
       name: active_customers
-      model: twc_aefc
+      model: "@{model_name}"
       explore: customer_performance
       type: single_value
       fields: [customer_performance.active_customer_count]
@@ -57,7 +56,7 @@
 
     - title: "Avg Lifetime Spend"
       name: avg_spend
-      model: twc_aefc
+      model: "@{model_name}"
       explore: customer_performance
       type: single_value
       fields: [customer_metrics.avg_customer_spend]
@@ -71,7 +70,7 @@
 
     - title: "Avg Transactions"
       name: avg_txns
-      model: twc_aefc
+      model: "@{model_name}"
       explore: customer_performance
       type: single_value
       fields: [customer_metrics.avg_customer_transactions]
@@ -85,7 +84,7 @@
 
     - title: "Avg Days Since Purchase"
       name: avg_recency
-      model: twc_aefc
+      model: "@{model_name}"
       explore: customer_performance
       type: single_value
       fields: [customer_metrics.avg_days_since_last_purchase]
@@ -101,7 +100,7 @@
 
     - title: "Customers by Spend Tier"
       name: spend_tiers
-      model: twc_aefc
+      model: "@{model_name}"
       explore: customer_performance
       type: looker_column
       fields: [customer_metrics.lifetime_spend_tier, customer_metrics.customer_count]
@@ -116,7 +115,7 @@
 
     - title: "Customers by Purchase Frequency"
       name: frequency_tiers
-      model: twc_aefc
+      model: "@{model_name}"
       explore: customer_performance
       type: looker_column
       fields: [customer_metrics.purchase_frequency_tier, customer_metrics.customer_count]
@@ -131,7 +130,7 @@
 
     - title: "Customers by Recency"
       name: recency_tiers
-      model: twc_aefc
+      model: "@{model_name}"
       explore: customer_performance
       type: looker_column
       fields: [customer_metrics.recency_tier, customer_metrics.customer_count]
@@ -148,7 +147,7 @@
 
     - title: "Top 20 Customers by Lifetime Spend"
       name: top_customers
-      model: twc_aefc
+      model: "@{model_name}"
       explore: customer_performance
       type: looker_grid
       fields: [customer_performance.full_name, customer_performance.email, customer_performance.city,
@@ -169,7 +168,7 @@
 
     - title: "Customers by Home Location"
       name: by_location
-      model: twc_aefc
+      model: "@{model_name}"
       explore: customer_performance
       type: looker_bar
       fields: [customer_performance.location, customer_performance.customer_count]
@@ -185,7 +184,7 @@
 
     - title: "Customers by Type"
       name: by_type
-      model: twc_aefc
+      model: "@{model_name}"
       explore: customer_performance
       type: looker_pie
       fields: [customer_attributes.type, customer_performance.customer_count]

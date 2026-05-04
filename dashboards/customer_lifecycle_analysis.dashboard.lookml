@@ -4,7 +4,6 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: "Track customer progression through lifecycle stages based on recency, frequency, and spend patterns."
-  preferred_slug: customer-lifecycle-analysis
 
   filters:
     - name: customer_type
@@ -29,7 +28,7 @@
 
     - title: "Customer Recency Distribution"
       name: recency_dist
-      model: twc_aefc
+      model: "@{model_name}"
       explore: customer_performance
       type: looker_column
       fields: [customer_metrics.recency_tier, customer_metrics.customer_count]
@@ -44,7 +43,7 @@
 
     - title: "Frequency vs Spend Tier"
       name: frequency_spend
-      model: twc_aefc
+      model: "@{model_name}"
       explore: customer_performance
       type: looker_grid
       fields: [customer_metrics.purchase_frequency_tier, customer_metrics.lifetime_spend_tier,
@@ -63,7 +62,7 @@
 
     - title: "At-Risk High-Value Customers"
       name: at_risk
-      model: twc_aefc
+      model: "@{model_name}"
       explore: customer_performance
       type: looker_grid
       fields: [customer_performance.full_name, customer_performance.email,
@@ -87,7 +86,7 @@
 
     - title: "Recently Acquired Customers (Last 90 Days)"
       name: new_customers
-      model: twc_aefc
+      model: "@{model_name}"
       explore: customer_performance
       type: looker_grid
       fields: [customer_performance.full_name, customer_performance.email,
@@ -110,7 +109,7 @@
 
     - title: "Lapsed Customers (No Purchase in 1+ Year)"
       name: lapsed
-      model: twc_aefc
+      model: "@{model_name}"
       explore: customer_performance
       type: looker_grid
       fields: [customer_performance.full_name, customer_performance.email,

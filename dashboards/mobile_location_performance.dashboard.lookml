@@ -4,7 +4,6 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: "Mobile-optimized location scorecard: KPIs and per-location ranking."
-  preferred_slug: mobile-location-performance
 
   filters:
     - name: date_range
@@ -26,7 +25,7 @@
 
     - title: "Net Sales"
       name: l_net_sales
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.total_net_sales]
@@ -40,7 +39,7 @@
 
     - title: "Margin %"
       name: l_margin_pct
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.margin_percent]
@@ -54,7 +53,7 @@
 
     - title: "Transactions"
       name: l_transactions
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.transaction_count]
@@ -68,7 +67,7 @@
 
     - title: "ATV"
       name: l_atv
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.avg_transaction_value]
@@ -84,7 +83,7 @@
 
     - title: "Net Sales by Location"
       name: l_sales_by_location
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_bar
       fields: [sales_receipt.location_name, sales_receipt.total_net_sales]
@@ -101,7 +100,7 @@
 
     - title: "Margin % by Location"
       name: l_margin_by_location
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_bar
       fields: [sales_receipt.location_name, sales_receipt.margin_percent]
@@ -118,7 +117,7 @@
 
     - title: "Transactions by Location"
       name: l_txn_by_location
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_bar
       fields: [sales_receipt.location_name, sales_receipt.transaction_count]
@@ -137,7 +136,7 @@
 
     - title: "Location Scorecard"
       name: l_scorecard
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_grid
       fields:

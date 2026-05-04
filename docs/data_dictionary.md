@@ -171,7 +171,7 @@ One section per view, in alphabetical order within each domain. Fill in any rows
 
 #### `dim_calendar`
 - **File:** [views/master/dim_calendar.view.lkml](../views/master/dim_calendar.view.lkml)
-- **Source:** `aefc-prod-us-twc-b1bc.bi_star.dim_Calendar_view`
+- **Source:** `@{schema_name}.bi_star.dim_Calendar_view`
 - **Grain:** One row per calendar date.
 - **Refresh:** `master_refresh` (12h)
 - **Use for:** Retail (4-5-4) calendar joins. Always join sales/inventory to this for retail week/month/quarter alignment instead of using calendar dates.

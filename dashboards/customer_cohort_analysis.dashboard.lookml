@@ -4,7 +4,6 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: "Analyze customer behavior and value by acquisition cohort based on first purchase date."
-  preferred_slug: customer-cohort-analysis
 
   filters:
     - name: customer_type
@@ -29,7 +28,7 @@
 
     - title: "New Customers by Acquisition Quarter"
       name: cohort_count
-      model: twc_aefc
+      model: "@{model_name}"
       explore: customer_performance
       type: looker_column
       fields: [customer_metrics.first_purchase_quarter, customer_metrics.customer_count]
@@ -47,7 +46,7 @@
 
     - title: "Avg Lifetime Spend by Acquisition Quarter"
       name: cohort_spend
-      model: twc_aefc
+      model: "@{model_name}"
       explore: customer_performance
       type: looker_grid
       fields: [customer_metrics.first_purchase_quarter, customer_metrics.customer_count,
@@ -67,7 +66,7 @@
 
     - title: "Total Revenue by Acquisition Quarter"
       name: cohort_revenue
-      model: twc_aefc
+      model: "@{model_name}"
       explore: customer_performance
       type: looker_column
       fields: [customer_metrics.first_purchase_quarter, customer_metrics.total_lifetime_spend]
@@ -83,7 +82,7 @@
 
     - title: "Avg Transactions by Acquisition Quarter"
       name: cohort_frequency
-      model: twc_aefc
+      model: "@{model_name}"
       explore: customer_performance
       type: looker_column
       fields: [customer_metrics.first_purchase_quarter, customer_metrics.avg_customer_transactions]
@@ -101,7 +100,7 @@
 
     - title: "Cohort Detail by Acquisition Year"
       name: cohort_year_detail
-      model: twc_aefc
+      model: "@{model_name}"
       explore: customer_performance
       type: looker_grid
       fields: [customer_metrics.first_purchase_year, customer_metrics.customer_count,

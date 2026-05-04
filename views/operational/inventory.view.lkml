@@ -4,7 +4,7 @@
 # ══════════════════════════════════════════════════════════════
 
 view: inventory {
-  sql_table_name: `aefc-prod-us-twc-b1bc.external_datamart_1.Inventory_view` ;;
+  sql_table_name: `@{schema_name}.external_datamart_1.Inventory_view` ;;
 
   # ── Keys ──
 

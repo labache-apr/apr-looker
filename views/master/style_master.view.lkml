@@ -27,7 +27,7 @@ view: style_master {
     sql:
       WITH style AS (
         SELECT *
-        FROM `aefc-prod-us-twc-b1bc.bi_star.append_window_dbo_InvenStyle_view`
+        FROM `@{schema_name}.bi_star.append_window_dbo_InvenStyle_view`
         WHERE IsDeleted = FALSE
       ),
       extended AS (
@@ -36,7 +36,7 @@ view: style_master {
           CustomLongText1, CustomLongText2, CustomLongText3, CustomLongText4, CustomLongText5, CustomLongText6,
           CustomLongText7, CustomLongText8, CustomLongText9, CustomLongText10, CustomLongText11, CustomLongText12,
           CustomLongText13, CustomLongText14, CustomLongText15, CustomLongText16, CustomLongText17, CustomLongText18
-        FROM `aefc-prod-us-twc-b1bc.bi_star.append_window_dbo_InvenStyleExtended_view`
+        FROM `@{schema_name}.bi_star.append_window_dbo_InvenStyleExtended_view`
         WHERE IsDeleted = FALSE
       ),
       lookups AS (
@@ -44,7 +44,7 @@ view: style_master {
           StyleId,
           CustomLookup1, CustomLookup2, CustomLookup3, CustomLookup4, CustomLookup5, CustomLookup6,
           CustomLookup7, CustomLookup8, CustomLookup9, CustomLookup10, CustomLookup11, CustomLookup12
-        FROM `aefc-prod-us-twc-b1bc.bi_star.mv_StyleCustomLookup_view`
+        FROM `@{schema_name}.bi_star.mv_StyleCustomLookup_view`
       ),
       primary_vendor AS (
         -- mv_PrimaryVendor_view is at ItemId grain with denormalized StyleId.
@@ -67,26 +67,26 @@ view: style_master {
           MAX(DefaultVendorWeeksOfSupply)     AS default_vendor_weeks_of_supply,
           MAX(DefaultVendorWeeksOfSupplyMax)  AS default_vendor_weeks_of_supply_max,
           MAX(DefaultVendorLeadTime)          AS default_vendor_lead_time
-        FROM `aefc-prod-us-twc-b1bc.bi_star.mv_PrimaryVendor_view`
+        FROM `@{schema_name}.bi_star.mv_PrimaryVendor_view`
         WHERE StyleId IS NOT NULL
         GROUP BY StyleId
       ),
       brands AS (
         SELECT InvenBrandID AS brand_id, MAX(Name) AS brand_name
-        FROM `aefc-prod-us-twc-b1bc.bi_star.append_window_dbo_InvenBrand_view`
+        FROM `@{schema_name}.bi_star.append_window_dbo_InvenBrand_view`
         WHERE IsDeleted = FALSE
         GROUP BY InvenBrandID
       ),
       seasons AS (
         SELECT InvenSeasonId AS season_id, MAX(Name) AS season_name, MAX(No) AS season_no
-        FROM `aefc-prod-us-twc-b1bc.bi_star.append_window_dbo_InvenSeason_view`
+        FROM `@{schema_name}.bi_star.append_window_dbo_InvenSeason_view`
         WHERE IsDeleted = FALSE
         GROUP BY InvenSeasonId
       ),
       manufacturers AS (
         -- ManufacturerId is a vendor reference; resolve via dim_Vendor_view.
         SELECT VendorId AS manufacturer_id, MAX(VendorName) AS manufacturer_name, MAX(VendorNo) AS manufacturer_no
-        FROM `aefc-prod-us-twc-b1bc.bi_star.dim_Vendor_view`
+        FROM `@{schema_name}.bi_star.dim_Vendor_view`
         GROUP BY VendorId
       ),
       countries AS (
@@ -95,7 +95,7 @@ view: style_master {
           MAX(Code)                AS country_code,
           MAX(ShortName)           AS country_short_name,
           MAX(Alpha3Code)          AS country_alpha3_code
-        FROM `aefc-prod-us-twc-b1bc.bi_star.append_window_dbo_Country_view`
+        FROM `@{schema_name}.bi_star.append_window_dbo_Country_view`
         WHERE IsDeleted = FALSE
         GROUP BY CountryID
       ),
@@ -104,7 +104,7 @@ view: style_master {
           TaxCategoryID            AS tax_category_id,
           MAX(Name)                AS tax_category_name,
           MAX(Description)         AS tax_category_description
-        FROM `aefc-prod-us-twc-b1bc.bi_star.append_window_dbo_TaxCategory_view`
+        FROM `@{schema_name}.bi_star.append_window_dbo_TaxCategory_view`
         WHERE IsDeleted = FALSE
         GROUP BY TaxCategoryID
       ),
@@ -114,7 +114,7 @@ view: style_master {
           MAX(DisplayLabel)        AS attribute_set_label,
           MAX(Description)         AS attribute_set_description,
           MAX(Code)                AS attribute_set_code
-        FROM `aefc-prod-us-twc-b1bc.bi_star.append_window_dbo_AttributeSet_view`
+        FROM `@{schema_name}.bi_star.append_window_dbo_AttributeSet_view`
         WHERE IsDeleted = FALSE
         GROUP BY AttributeSetID
       ),
@@ -130,7 +130,7 @@ view: style_master {
           MAX(Subclass1)  AS subclass1,
           MAX(Subclass2)  AS subclass2,
           MAX(DCSS)       AS dcss
-        FROM `aefc-prod-us-twc-b1bc.bi_star.dim_Item`
+        FROM `@{schema_name}.bi_star.dim_Item`
         WHERE StyleId IS NOT NULL
         GROUP BY StyleId
       )

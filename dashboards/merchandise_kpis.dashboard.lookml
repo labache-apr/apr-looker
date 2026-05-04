@@ -4,7 +4,6 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: "Period-based merchandising health: GMROI, inventory turn, weeks/days of supply, sell-through, out-of-stock rate, markdown %, AUR, ATV, UPT. Sourced from the daily inventory snapshot and POS receipts — apply the date range to scope the period."
-  preferred_slug: merchandise-kpis
 
   filters:
     - name: date_range
@@ -49,7 +48,7 @@
 
     - title: "GMROI"
       name: gmroi_kpi
-      model: twc_aefc
+      model: "@{model_name}"
       explore: inventory
       type: single_value
       fields: [inventory.gmroi]
@@ -64,7 +63,7 @@
 
     - title: "Inventory Turn"
       name: turn_kpi
-      model: twc_aefc
+      model: "@{model_name}"
       explore: inventory
       type: single_value
       fields: [inventory.inventory_turn_ratio]
@@ -79,7 +78,7 @@
 
     - title: "Sell-Through Rate"
       name: sell_through_kpi
-      model: twc_aefc
+      model: "@{model_name}"
       explore: inventory
       type: single_value
       fields: [inventory.sell_through_rate]
@@ -94,7 +93,7 @@
 
     - title: "Weeks of Supply"
       name: wos_kpi
-      model: twc_aefc
+      model: "@{model_name}"
       explore: inventory
       type: single_value
       fields: [inventory.weeks_of_supply]
@@ -109,7 +108,7 @@
 
     - title: "Days of Supply"
       name: dos_kpi
-      model: twc_aefc
+      model: "@{model_name}"
       explore: inventory
       type: single_value
       fields: [inventory.days_of_supply]
@@ -128,7 +127,7 @@
 
     - title: "Out-of-Stock Rate"
       name: oos_rate_kpi
-      model: twc_aefc
+      model: "@{model_name}"
       explore: inventory
       type: single_value
       fields: [inventory.out_of_stock_rate]
@@ -143,7 +142,7 @@
 
     - title: "Avg Inventory Cost"
       name: avg_inv_cost_kpi
-      model: twc_aefc
+      model: "@{model_name}"
       explore: inventory
       type: single_value
       fields: [inventory.avg_inventory_cost]
@@ -158,7 +157,7 @@
 
     - title: "AUR"
       name: aur_kpi
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.avg_unit_retail]
@@ -173,7 +172,7 @@
 
     - title: "ATV"
       name: atv_kpi
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.avg_transaction_value]
@@ -188,7 +187,7 @@
 
     - title: "UPT"
       name: upt_kpi
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.avg_units_per_transaction]
@@ -207,7 +206,7 @@
 
     - title: "Markdown %"
       name: markdown_pct_kpi
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.markdown_pct]
@@ -222,7 +221,7 @@
 
     - title: "Total Markdown $"
       name: markdown_dollars_kpi
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.total_markdown_amount]
@@ -237,7 +236,7 @@
 
     - title: "Discount Rate"
       name: discount_rate_kpi
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.discount_rate]
@@ -252,7 +251,7 @@
 
     - title: "Margin %"
       name: margin_pct_kpi
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.margin_percent]
@@ -271,7 +270,7 @@
 
     - title: "Inventory KPIs by Department"
       name: kpis_by_dept
-      model: twc_aefc
+      model: "@{model_name}"
       explore: inventory
       type: looker_grid
       fields: [
@@ -304,7 +303,7 @@
 
     - title: "Inventory KPIs by Location"
       name: kpis_by_location
-      model: twc_aefc
+      model: "@{model_name}"
       explore: inventory
       type: looker_grid
       fields: [
@@ -337,7 +336,7 @@
 
     - title: "Sales Productivity by Department"
       name: sales_kpis_by_dept
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_grid
       fields: [

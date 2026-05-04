@@ -4,7 +4,6 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: "Top selling products, brands, and departments by revenue and quantity."
-  preferred_slug: top-sellers
 
   filters:
     - name: date_range
@@ -34,7 +33,7 @@
 
     - title: "Top 10 Departments by Sales"
       name: top_departments
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_bar
       fields: [sales_receipt.department, sales_receipt.total_net_sales]
@@ -53,7 +52,7 @@
 
     - title: "Top 10 Brands by Sales"
       name: top_brands
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_bar
       fields: [sales_receipt.brand, sales_receipt.total_net_sales]
@@ -72,7 +71,7 @@
 
     - title: "Top 10 Vendors by Sales"
       name: top_vendors
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_bar
       fields: [sales_receipt.primary_vendor, sales_receipt.total_net_sales]
@@ -91,7 +90,7 @@
 
     - title: "Top 25 Items by Net Sales"
       name: top_items_revenue
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_grid
       fields: [sales_receipt.style, sales_receipt.description1, sales_receipt.department,
@@ -113,7 +112,7 @@
 
     - title: "Top 25 Items by Quantity Sold"
       name: top_items_qty
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_grid
       fields: [sales_receipt.style, sales_receipt.description1, sales_receipt.department,

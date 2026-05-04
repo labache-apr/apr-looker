@@ -12,7 +12,7 @@ include: "/views/custom_fields/purchase_order_custom_fields.view.lkml"
 
 view: purchase_order {
   extends: [item_struct, item_style_custom_fields, item_sku_custom_fields, location_struct, vendor_struct, retail_calendar, purchase_order_custom_fields]
-  sql_table_name: `aefc-prod-us-twc-b1bc.external_datamart_1.PurchaseOrder_view` ;;
+  sql_table_name: `@{schema_name}.external_datamart_1.PurchaseOrder_view` ;;
 
   dimension: date_part {
     hidden: yes
@@ -152,7 +152,7 @@ view: purchase_order_memo_lines {
         ml.Memo                           AS memo,
         ml.DocumentDateTime               AS document_date,
         ml.MemoDateTime                   AS memo_date
-      FROM `aefc-prod-us-twc-b1bc.external_datamart_1.PurchaseOrder_view` po,
+      FROM `@{schema_name}.external_datamart_1.PurchaseOrder_view` po,
            UNNEST(po.purchase_order.memo_lines) AS ml
     ;;
   }

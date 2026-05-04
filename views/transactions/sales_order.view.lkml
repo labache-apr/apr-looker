@@ -12,7 +12,7 @@ include: "/views/custom_fields/sales_order_custom_fields.view.lkml"
 
 view: sales_order {
   extends: [item_struct, item_style_custom_fields, item_sku_custom_fields, customer_struct, customer_custom_fields, location_struct, sales_order_header_custom_fields, sales_order_line_custom_fields]
-  sql_table_name: `aefc-prod-us-twc-b1bc.external_datamart_1.SalesOrder_view` ;;
+  sql_table_name: `@{schema_name}.external_datamart_1.SalesOrder_view` ;;
 
   # ── Top-Level ──
 
@@ -418,7 +418,7 @@ view: sales_order {
 # ══════════════════════════════════════════════════════════════
 
 view: sales_order_salecredit_location {
-  sql_table_name: `aefc-prod-us-twc-b1bc.external_datamart_1.SalesOrder_view` ;;
+  sql_table_name: `@{schema_name}.external_datamart_1.SalesOrder_view` ;;
 
   dimension: location_id   { group_label: "Sale Credit Location" description: "Internal id of the location credited with the sale (the store that 'gets' the revenue)." type: string sql: ${TABLE}.salecredit_location.LocationId ;; }
   dimension: location_code { group_label: "Sale Credit Location" description: "Short code of the sale-credit location." type: string sql: ${TABLE}.salecredit_location.LocationCode ;; }
@@ -429,7 +429,7 @@ view: sales_order_salecredit_location {
 }
 
 view: sales_order_sellfrom_location {
-  sql_table_name: `aefc-prod-us-twc-b1bc.external_datamart_1.SalesOrder_view` ;;
+  sql_table_name: `@{schema_name}.external_datamart_1.SalesOrder_view` ;;
 
   dimension: location_id   { group_label: "Sell From Location" description: "Internal id of the location physically fulfilling the order (the store/DC the goods ship from)." type: string sql: ${TABLE}.sellfrom_location.LocationId ;; }
   dimension: location_code { group_label: "Sell From Location" description: "Short code of the sell-from location." type: string sql: ${TABLE}.sellfrom_location.LocationCode ;; }

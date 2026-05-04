@@ -259,7 +259,7 @@ align with retail weeks/months/quarters.
 
 - **TWC** — the POS / retail platform that exports to BigQuery. The
   authoritative system of record for sales and inventory.
-- **`aefc-prod-us-twc-b1bc`** — the GCP project hosting the BigQuery
+- **`@{schema_name}`** — the GCP project hosting the BigQuery
   datasets.
 - **`external_datamart_1`** — the dataset TWC writes to. Most transaction
   and operational views read from `<TableName>_view` here. The `_view`

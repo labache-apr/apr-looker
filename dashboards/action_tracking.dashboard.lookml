@@ -4,7 +4,6 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: "POS and back-office action audit trail for loss prevention. Surfaces voids, item removals, price changes, manager overrides, failed logins, and cash-drawer events by employee, workstation, and location."
-  preferred_slug: action-tracking
 
   filters:
     - name: date_range
@@ -53,7 +52,7 @@
 
     - title: "Total Actions"
       name: total_actions
-      model: twc_aefc
+      model: "@{model_name}"
       explore: action_tracking
       type: single_value
       fields: [action_tracking.action_count]
@@ -70,7 +69,7 @@
 
     - title: "Distinct Employees"
       name: distinct_employees
-      model: twc_aefc
+      model: "@{model_name}"
       explore: action_tracking
       type: single_value
       fields: [action_tracking.distinct_employees]
@@ -87,7 +86,7 @@
 
     - title: "Distinct Workstations"
       name: distinct_workstations
-      model: twc_aefc
+      model: "@{model_name}"
       explore: action_tracking
       type: single_value
       fields: [action_tracking.distinct_workstations]
@@ -104,7 +103,7 @@
 
     - title: "Failed Logins"
       name: failed_logins
-      model: twc_aefc
+      model: "@{model_name}"
       explore: action_tracking
       type: single_value
       fields: [action_tracking.action_count]
@@ -124,7 +123,7 @@
 
     - title: "Voided & Discarded Receipt Value"
       name: voided_value
-      model: twc_aefc
+      model: "@{model_name}"
       explore: action_tracking
       type: single_value
       fields: [action_tracking.total_receipt_value_with_tax]
@@ -142,7 +141,7 @@
 
     - title: "Discount Applied — Receipt Value"
       name: discount_value
-      model: twc_aefc
+      model: "@{model_name}"
       explore: action_tracking
       type: single_value
       fields: [action_tracking.total_receipt_value_with_tax]
@@ -160,7 +159,7 @@
 
     - title: "Manual 'No Sale' Drawer Opens"
       name: no_sale_opens
-      model: twc_aefc
+      model: "@{model_name}"
       explore: action_tracking
       type: single_value
       fields: [action_tracking.action_count]
@@ -181,7 +180,7 @@
 
     - title: "Actions Over Time"
       name: actions_trend
-      model: twc_aefc
+      model: "@{model_name}"
       explore: action_tracking
       type: looker_line
       fields: [action_tracking.action_at_date, action_tracking.action, action_tracking.action_count]
@@ -209,7 +208,7 @@
 
     - title: "Actions by Type"
       name: actions_by_type
-      model: twc_aefc
+      model: "@{model_name}"
       explore: action_tracking
       type: looker_bar
       fields: [action_tracking.action, action_tracking.action_count]
@@ -230,7 +229,7 @@
 
     - title: "Actions by Location"
       name: actions_by_location
-      model: twc_aefc
+      model: "@{model_name}"
       explore: action_tracking
       type: looker_bar
       fields: [dim_location_franchise.location_name, action_tracking.action_count]
@@ -251,7 +250,7 @@
 
     - title: "Action Volume by Day of Week and Hour"
       name: actions_heatmap
-      model: twc_aefc
+      model: "@{model_name}"
       explore: action_tracking
       type: looker_grid
       fields: [action_tracking.action_at_day_of_week, action_tracking.action_at_hour_of_day,
@@ -302,7 +301,7 @@
 
     - title: "High-Risk Sales Actions by Employee"
       name: high_risk_by_employee
-      model: twc_aefc
+      model: "@{model_name}"
       explore: action_tracking
       type: looker_grid
       fields: [dim_employee.full_name, dim_employee.home_location, action_tracking.action,
@@ -328,7 +327,7 @@
 
     - title: "High-Risk Sales Actions by Location"
       name: high_risk_by_location
-      model: twc_aefc
+      model: "@{model_name}"
       explore: action_tracking
       type: looker_grid
       fields: [dim_location_franchise.location_name, action_tracking.action,
@@ -354,7 +353,7 @@
 
     - title: "Failed Login Attempts"
       name: failed_logins_by_employee
-      model: twc_aefc
+      model: "@{model_name}"
       explore: action_tracking
       type: looker_grid
       fields: [dim_employee.full_name, dim_location_franchise.location_name,
@@ -379,7 +378,7 @@
 
     - title: "Cash Movement Activity by Employee"
       name: cash_movement
-      model: twc_aefc
+      model: "@{model_name}"
       explore: action_tracking
       type: looker_grid
       fields: [dim_employee.full_name, dim_location_franchise.location_name,
@@ -404,7 +403,7 @@
 
     - title: "Audit Trail (Detail)"
       name: audit_trail
-      model: twc_aefc
+      model: "@{model_name}"
       explore: action_tracking
       type: looker_grid
       fields: [action_tracking.action_at_time, dim_location_franchise.location_name,

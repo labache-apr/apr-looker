@@ -11,7 +11,7 @@
 # ══════════════════════════════════════════════════════════════
 
 view: drawer_memo {
-  sql_table_name: `aefc-prod-us-twc-b1bc.bi_star.append_window_dbo_DrawerMemo_view` ;;
+  sql_table_name: `@{schema_name}.bi_star.append_window_dbo_DrawerMemo_view` ;;
 
   # ── Partition / Audit ──
 
@@ -426,7 +426,7 @@ view: drawer_memo {
 # ══════════════════════════════════════════════════════════════
 
 view: drawer_memo_media {
-  sql_table_name: `aefc-prod-us-twc-b1bc.bi_star.append_window_dbo_DrawerMemoMedia_view` ;;
+  sql_table_name: `@{schema_name}.bi_star.append_window_dbo_DrawerMemoMedia_view` ;;
 
   dimension: date_part {
     group_label: "Audit"
@@ -749,7 +749,7 @@ view: drawer_memo_media {
 # ══════════════════════════════════════════════════════════════
 
 view: drawer_memo_paid_in_out {
-  sql_table_name: `aefc-prod-us-twc-b1bc.bi_star.append_window_dbo_DrawerMemoPaidInOut_view` ;;
+  sql_table_name: `@{schema_name}.bi_star.append_window_dbo_DrawerMemoPaidInOut_view` ;;
 
   dimension: date_part {
     group_label: "Audit"
@@ -983,7 +983,7 @@ view: drawer_memo_paid_in_out {
 # ══════════════════════════════════════════════════════════════
 
 view: drawer_memo_payment {
-  sql_table_name: `aefc-prod-us-twc-b1bc.bi_star.append_window_dbo_DrawerMemoPayment_view` ;;
+  sql_table_name: `@{schema_name}.bi_star.append_window_dbo_DrawerMemoPayment_view` ;;
 
   dimension: date_part {
     group_label: "Audit"
@@ -1167,7 +1167,7 @@ view: drawer_memo_payment {
 # ══════════════════════════════════════════════════════════════
 
 view: drawer_memo_status_history {
-  sql_table_name: `aefc-prod-us-twc-b1bc.bi_star.append_window_dbo_DrawerMemoStatusHistory_view` ;;
+  sql_table_name: `@{schema_name}.bi_star.append_window_dbo_DrawerMemoStatusHistory_view` ;;
 
   dimension: date_part {
     group_label: "Audit"

@@ -149,7 +149,7 @@ this project) — don't change to other styles in new files.
 ```lookml
 # ══════════════════════════════════════════════════════════════
 # View:    sales_receipt
-# Source:  aefc-prod-us-twc-b1bc.external_datamart_1.SalesReceipt_view
+# Source:  @{schema_name}.external_datamart_1.SalesReceipt_view
 # Grain:   One row per receipt line (one item sold)
 # Refresh: daily_refresh
 # Owner:   data-team@allpointretail.com

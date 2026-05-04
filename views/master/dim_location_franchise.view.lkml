@@ -6,7 +6,7 @@
 # ══════════════════════════════════════════════════════════════
 
 view: dim_location_franchise {
-  sql_table_name: `aefc-prod-us-twc-b1bc.bi_star.dim_Location_view` ;;
+  sql_table_name: `@{schema_name}.bi_star.dim_Location_view` ;;
 
   # ── User Access / Row-Level Security ──
 

@@ -4,7 +4,6 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: "Compare sales KPIs across periods with location and department breakdowns."
-  preferred_slug: sales-kpi-period-comparison
 
   filters:
     - name: current_period
@@ -31,7 +30,7 @@
 
     - title: "Net Sales (Current)"
       name: current_net_sales
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.total_net_sales]
@@ -45,7 +44,7 @@
 
     - title: "Transactions (Current)"
       name: current_transactions
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.transaction_count]
@@ -59,7 +58,7 @@
 
     - title: "ATV (Current)"
       name: current_atv
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.avg_transaction_value]
@@ -73,7 +72,7 @@
 
     - title: "UPT (Current)"
       name: current_upt
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.avg_units_per_transaction]
@@ -87,7 +86,7 @@
 
     - title: "Margin % (Current)"
       name: current_margin_pct
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.margin_percent]
@@ -103,7 +102,7 @@
 
     - title: "Net Sales (Previous)"
       name: prev_net_sales
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.total_net_sales]
@@ -117,7 +116,7 @@
 
     - title: "Transactions (Previous)"
       name: prev_transactions
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.transaction_count]
@@ -131,7 +130,7 @@
 
     - title: "ATV (Previous)"
       name: prev_atv
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.avg_transaction_value]
@@ -145,7 +144,7 @@
 
     - title: "UPT (Previous)"
       name: prev_upt
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.avg_units_per_transaction]
@@ -159,7 +158,7 @@
 
     - title: "Margin % (Previous)"
       name: prev_margin_pct
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.margin_percent]
@@ -175,7 +174,7 @@
 
     - title: "Sales by Location - Current Period"
       name: location_current
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_grid
       fields: [sales_receipt.location_name, sales_receipt.total_net_sales, sales_receipt.transaction_count,
@@ -192,7 +191,7 @@
 
     - title: "Sales by Location - Previous Period"
       name: location_previous
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_grid
       fields: [sales_receipt.location_name, sales_receipt.total_net_sales, sales_receipt.transaction_count,
@@ -211,7 +210,7 @@
 
     - title: "Sales by Department - Current Period"
       name: dept_current
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_grid
       fields: [sales_receipt.department, sales_receipt.total_net_sales, sales_receipt.total_quantity,
@@ -228,7 +227,7 @@
 
     - title: "Sales by Department - Previous Period"
       name: dept_previous
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_grid
       fields: [sales_receipt.department, sales_receipt.total_net_sales, sales_receipt.total_quantity,

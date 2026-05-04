@@ -4,7 +4,6 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: "Comprehensive sales analytics with KPIs, trends, and breakdowns by location, department, brand, and employee."
-  preferred_slug: sales-performance
 
   filters:
     - name: date_range
@@ -34,7 +33,7 @@
 
     - title: "Net Sales"
       name: net_sales
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.total_net_sales]
@@ -49,7 +48,7 @@
 
     - title: "Gross Sales"
       name: gross_sales
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.total_gross_sales]
@@ -64,7 +63,7 @@
 
     - title: "Margin"
       name: margin
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.total_margin]
@@ -79,7 +78,7 @@
 
     - title: "Margin %"
       name: margin_pct
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.margin_percent]
@@ -94,7 +93,7 @@
 
     - title: "Discount Rate"
       name: discount_rate
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.discount_rate]
@@ -111,7 +110,7 @@
 
     - title: "Transactions"
       name: transactions
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.transaction_count]
@@ -126,7 +125,7 @@
 
     - title: "ATV"
       name: atv
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.avg_transaction_value]
@@ -141,7 +140,7 @@
 
     - title: "UPT"
       name: upt
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.avg_units_per_transaction]
@@ -156,7 +155,7 @@
 
     - title: "ASP"
       name: asp
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.avg_selling_price]
@@ -173,7 +172,7 @@
 
     - title: "Daily Sales Trend"
       name: daily_trend
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_line
       fields: [sales_receipt.date_part, sales_receipt.total_net_sales, sales_receipt.total_margin]
@@ -192,7 +191,7 @@
 
     - title: "Sales by Location"
       name: by_location
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_bar
       fields: [sales_receipt.location_name, sales_receipt.total_net_sales, sales_receipt.transaction_count]
@@ -211,7 +210,7 @@
 
     - title: "Sales by Department"
       name: by_department
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_bar
       fields: [sales_receipt.department, sales_receipt.total_net_sales, sales_receipt.margin_percent]
@@ -230,7 +229,7 @@
 
     - title: "Top 15 Brands"
       name: by_brand
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_bar
       fields: [sales_receipt.brand, sales_receipt.total_net_sales, sales_receipt.total_quantity]
@@ -249,7 +248,7 @@
 
     - title: "Sales by Employee"
       name: by_employee
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_grid
       fields: [sales_receipt.employee_name, sales_receipt.total_net_sales, sales_receipt.transaction_count,

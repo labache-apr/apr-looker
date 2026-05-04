@@ -4,7 +4,6 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: "Single-product deep dive showing inventory health, sales velocity, and reorder status across all locations."
-  preferred_slug: product-flash-report
 
   filters:
     - name: plu
@@ -40,7 +39,7 @@
 
     - title: "Product"
       name: product_info
-      model: twc_aefc
+      model: "@{model_name}"
       explore: product_flash
       type: looker_single_record
       fields: [product_flash.description1, product_flash.style,
@@ -57,7 +56,7 @@
 
     - title: "Vendor Cost"
       name: vendor_cost
-      model: twc_aefc
+      model: "@{model_name}"
       explore: product_flash
       type: single_value
       fields: [product_flash.vendor_cost]
@@ -71,7 +70,7 @@
 
     - title: "Current Price"
       name: current_price
-      model: twc_aefc
+      model: "@{model_name}"
       explore: product_flash
       type: single_value
       fields: [product_flash.retail_price]
@@ -85,7 +84,7 @@
 
     - title: "Est. Margin"
       name: est_margin
-      model: twc_aefc
+      model: "@{model_name}"
       explore: product_flash
       type: single_value
       fields: [product_flash.est_margin_pct]
@@ -103,7 +102,7 @@
 
     - title: "Total On Hand"
       name: total_on_hand
-      model: twc_aefc
+      model: "@{model_name}"
       explore: product_flash
       type: single_value
       fields: [product_flash.total_on_hand, product_flash.total_available]
@@ -119,7 +118,7 @@
 
     - title: "Weeks of Supply"
       name: weeks_of_supply
-      model: twc_aefc
+      model: "@{model_name}"
       explore: product_flash
       type: single_value
       fields: [product_flash.weeks_of_supply]
@@ -135,7 +134,7 @@
 
     - title: "Sell-Through YTD"
       name: sell_through_ytd
-      model: twc_aefc
+      model: "@{model_name}"
       explore: product_flash
       type: single_value
       fields: [product_flash.sell_through_ytd, product_flash.total_ytd_sales_units]
@@ -151,7 +150,7 @@
 
     - title: "YTD vs LY"
       name: ytd_vs_ly
-      model: twc_aefc
+      model: "@{model_name}"
       explore: product_flash
       type: single_value
       fields: [product_flash.ytd_vs_ly_pct, product_flash.total_ytd_sales_dollars,
@@ -172,7 +171,7 @@
 
     - title: "Stock-Outs"
       name: stockouts
-      model: twc_aefc
+      model: "@{model_name}"
       explore: product_flash
       type: single_value
       fields: [product_flash.stockout_location_count, product_flash.below_reorder_min_count]
@@ -188,7 +187,7 @@
 
     - title: "Incoming"
       name: incoming
-      model: twc_aefc
+      model: "@{model_name}"
       explore: product_flash
       type: single_value
       fields: [product_flash.total_incoming]
@@ -204,7 +203,7 @@
 
     - title: "First / Last Sale"
       name: sale_dates
-      model: twc_aefc
+      model: "@{model_name}"
       explore: product_flash
       type: single_value
       fields: [product_flash.first_sale_date, product_flash.last_sale_date]
@@ -223,7 +222,7 @@
 
     - title: "Reorder Alert"
       name: reorder_alert
-      model: twc_aefc
+      model: "@{model_name}"
       explore: product_flash
       type: looker_grid
       fields: [product_flash.location_label, product_flash.available,
@@ -249,7 +248,7 @@
 
     - title: "Location Detail"
       name: location_detail
-      model: twc_aefc
+      model: "@{model_name}"
       explore: product_flash
       type: looker_grid
       fields: [product_flash.location_label, product_flash.stock_status,

@@ -1,8 +1,11 @@
 project_name: "apr_looker"
 
-# # Use local_dependency: To enable referencing of another project
-# # on this instance with include: statements
-#
-# local_dependency: {
-#   project: "name_of_other_project"
-# }
+constant: schema_name {
+  value: "default_schema" # A fallback value
+  export: override_required # This forces the Spoke to provide a value
+}
+
+constant: model_name {
+  value: "default_model"
+  export: override_required # This is the key!
+}

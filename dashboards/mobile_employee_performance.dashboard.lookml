@@ -4,7 +4,6 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: "Mobile-optimized employee scorecard: KPIs and per-employee ranking."
-  preferred_slug: mobile-employee-performance
 
   filters:
     - name: date_range
@@ -34,7 +33,7 @@
 
     - title: "Net Sales"
       name: emp_net_sales
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.total_net_sales]
@@ -49,7 +48,7 @@
 
     - title: "Transactions"
       name: emp_transactions
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.transaction_count]
@@ -64,7 +63,7 @@
 
     - title: "ATV"
       name: emp_atv
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.avg_transaction_value]
@@ -79,7 +78,7 @@
 
     - title: "UPT"
       name: emp_upt
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.avg_units_per_transaction]
@@ -96,7 +95,7 @@
 
     - title: "Top Employees by Net Sales"
       name: emp_top_sales
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_bar
       fields: [sales_receipt.employee_name, sales_receipt.total_net_sales]
@@ -114,7 +113,7 @@
 
     - title: "Top Employees by ATV"
       name: emp_top_atv
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_bar
       fields: [sales_receipt.employee_name, sales_receipt.avg_transaction_value]
@@ -132,7 +131,7 @@
 
     - title: "Top Employees by UPT"
       name: emp_top_upt
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_bar
       fields: [sales_receipt.employee_name, sales_receipt.avg_units_per_transaction]
@@ -152,7 +151,7 @@
 
     - title: "Employee Scorecard"
       name: emp_scorecard
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_grid
       fields:

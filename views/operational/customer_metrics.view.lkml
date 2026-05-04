@@ -25,7 +25,7 @@ view: customer_metrics {
           DATE_DIFF(MAX(sr.Date_Part), MIN(sr.Date_Part), DAY),
           NULLIF(COUNT(DISTINCT sr.sale.UniversalNo) - 1, 0)
         )                                                   AS avg_days_between_purchases
-      FROM `aefc-prod-us-twc-b1bc.external_datamart_1.SalesReceipt_view` sr
+      FROM `@{schema_name}.external_datamart_1.SalesReceipt_view` sr
       WHERE sr.customer.CustomerId IS NOT NULL
         AND sr.customer.CustomerId != ''
       GROUP BY 1

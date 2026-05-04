@@ -13,7 +13,7 @@ view: dim_customer_location {
         c.LocationCode              AS location_code,
         c.Location                  AS location_name,
         'Home'                      AS association_type
-      FROM `aefc-prod-us-twc-b1bc.external_datamart_1.Customer_view` c
+      FROM `@{schema_name}.external_datamart_1.Customer_view` c
       WHERE c.CustomerId IS NOT NULL
         AND c.CustomerId != ''
         AND c.LocationCode IS NOT NULL
@@ -27,7 +27,7 @@ view: dim_customer_location {
         c.CreatedAtCode             AS location_code,
         c.CreatedAt                 AS location_name,
         'Created'                   AS association_type
-      FROM `aefc-prod-us-twc-b1bc.external_datamart_1.Customer_view` c
+      FROM `@{schema_name}.external_datamart_1.Customer_view` c
       WHERE c.CustomerId IS NOT NULL
         AND c.CustomerId != ''
         AND c.CreatedAtCode IS NOT NULL
@@ -41,7 +41,7 @@ view: dim_customer_location {
         sr.location.LocationCode    AS location_code,
         sr.location.LocationName    AS location_name,
         'Purchased'                 AS association_type
-      FROM `aefc-prod-us-twc-b1bc.external_datamart_1.SalesReceipt_view` sr
+      FROM `@{schema_name}.external_datamart_1.SalesReceipt_view` sr
       WHERE sr.customer.CustomerId IS NOT NULL
         AND sr.customer.CustomerId != ''
         AND sr.location.LocationCode IS NOT NULL
@@ -55,8 +55,8 @@ view: dim_customer_location {
         loc.LocationCode              AS location_code,
         loc.LocationName              AS location_name,
         'Last Receipt'                AS association_type
-      FROM `aefc-prod-us-twc-b1bc.bi_star.CHQCustomerAttributes` ca
-      LEFT JOIN `aefc-prod-us-twc-b1bc.bi_star.dim_Location_view` loc
+      FROM `@{schema_name}.bi_star.CHQCustomerAttributes` ca
+      LEFT JOIN `@{schema_name}.bi_star.dim_Location_view` loc
         ON ca.LastReceiptLocation = loc.LocationId
       WHERE ca.CustomerId IS NOT NULL
         AND ca.CustomerId != ''
@@ -71,8 +71,8 @@ view: dim_customer_location {
         loc.LocationCode                 AS location_code,
         loc.LocationName                 AS location_name,
         'Preferred'                      AS association_type
-      FROM `aefc-prod-us-twc-b1bc.bi_star.CHQCustomerAttributes` ca
-      LEFT JOIN `aefc-prod-us-twc-b1bc.bi_star.dim_Location_view` loc
+      FROM `@{schema_name}.bi_star.CHQCustomerAttributes` ca
+      LEFT JOIN `@{schema_name}.bi_star.dim_Location_view` loc
         ON ca.PreferredStoreLocation = loc.LocationName
       WHERE ca.CustomerId IS NOT NULL
         AND ca.CustomerId != ''

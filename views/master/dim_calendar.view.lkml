@@ -6,7 +6,7 @@
 # ══════════════════════════════════════════════════════════════
 
 view: dim_calendar {
-  sql_table_name: `aefc-prod-us-twc-b1bc.bi_star.dim_Calendar_view` ;;
+  sql_table_name: `@{schema_name}.bi_star.dim_Calendar_view` ;;
 
   # ── Primary Key ──
 
@@ -241,7 +241,7 @@ view: dim_calendar {
     type: yesno
     sql: ${retail_year} = (
       SELECT MAX(RetailYear)
-      FROM `aefc-prod-us-twc-b1bc.bi_star.dim_Calendar_view`
+      FROM `@{schema_name}.bi_star.dim_Calendar_view`
       WHERE Date <= CURRENT_DATE()
     ) ;;
   }
@@ -253,16 +253,16 @@ view: dim_calendar {
     type: yesno
     sql: ${retail_year} = (
       SELECT MAX(RetailYear)
-      FROM `aefc-prod-us-twc-b1bc.bi_star.dim_Calendar_view`
+      FROM `@{schema_name}.bi_star.dim_Calendar_view`
       WHERE Date <= CURRENT_DATE()
     )
     AND ${retail_month_no} = (
       SELECT MAX(RetailMonthNo)
-      FROM `aefc-prod-us-twc-b1bc.bi_star.dim_Calendar_view`
+      FROM `@{schema_name}.bi_star.dim_Calendar_view`
       WHERE Date <= CURRENT_DATE()
         AND RetailYear = (
           SELECT MAX(RetailYear)
-          FROM `aefc-prod-us-twc-b1bc.bi_star.dim_Calendar_view`
+          FROM `@{schema_name}.bi_star.dim_Calendar_view`
           WHERE Date <= CURRENT_DATE()
         )
     ) ;;
@@ -275,7 +275,7 @@ view: dim_calendar {
     type: yesno
     sql: ${retail_week_id} = (
       SELECT MAX(RetailWeekId)
-      FROM `aefc-prod-us-twc-b1bc.bi_star.dim_Calendar_view`
+      FROM `@{schema_name}.bi_star.dim_Calendar_view`
       WHERE Date <= CURRENT_DATE()
     ) ;;
   }

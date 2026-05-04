@@ -4,7 +4,6 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: "Look up a single receipt by Universal Number to see header totals, item lines, payment tenders, and metadata."
-  preferred_slug: receipt-detail
 
   filters:
     - name: universal_no
@@ -43,7 +42,7 @@
 
     - title: "Net Sales"
       name: hdr_net_sales
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.total_net_sales]
@@ -59,7 +58,7 @@
 
     - title: "Units"
       name: hdr_units
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.total_quantity]
@@ -75,7 +74,7 @@
 
     - title: "Discount"
       name: hdr_discount
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.total_discount]
@@ -91,7 +90,7 @@
 
     - title: "Tax"
       name: hdr_tax
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.total_tax]
@@ -107,7 +106,7 @@
 
     - title: "Margin %"
       name: hdr_margin_pct
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: single_value
       fields: [sales_receipt.margin_percent]
@@ -125,7 +124,7 @@
 
     - title: "Receipt Header"
       name: receipt_header
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_grid
       fields: [
@@ -155,7 +154,7 @@
 
     - title: "Line Items"
       name: line_items
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_grid
       fields: [
@@ -192,7 +191,7 @@
 
     - title: "Payment Tenders"
       name: payment_tenders
-      model: twc_aefc
+      model: "@{model_name}"
       explore: sales_receipt
       type: looker_grid
       fields: [

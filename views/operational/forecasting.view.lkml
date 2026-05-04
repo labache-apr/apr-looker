@@ -8,7 +8,7 @@
 # ══════════════════════════════════════════════════════════════
 
 view: forecasting {
-  sql_table_name: `aefc-prod-us-twc-b1bc.bi_star.append_window_dbo_Forecasting_view` ;;
+  sql_table_name: `@{schema_name}.bi_star.append_window_dbo_Forecasting_view` ;;
 
   # ── Primary Key ──
 

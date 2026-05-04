@@ -7,7 +7,7 @@ include: "/views/structs/location_struct.view.lkml"
 
 view: traffic_counter {
   extends: [location_struct]
-  sql_table_name: `aefc-prod-us-twc-b1bc.external_datamart_1.TrafficCounter_view` ;;
+  sql_table_name: `@{schema_name}.external_datamart_1.TrafficCounter_view` ;;
 
   dimension: date_part {
     description: "Calendar date of the traffic count. BigQuery partition column."

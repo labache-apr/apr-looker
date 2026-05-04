@@ -11,7 +11,7 @@ include: "/views/custom_fields/item_custom_fields.view.lkml"
 
 view: ship_memo {
   extends: [item_struct, item_style_custom_fields, item_sku_custom_fields, location_struct, customer_struct]
-  sql_table_name: `aefc-prod-us-twc-b1bc.external_datamart_1.ShipMemo_view` ;;
+  sql_table_name: `@{schema_name}.external_datamart_1.ShipMemo_view` ;;
 
   dimension: date_part {
     hidden: yes

@@ -8,7 +8,7 @@ include: "/views/custom_fields/employee_custom_fields.view.lkml"
 
 view: dim_employee {
   extends: [employee_custom_fields]
-  sql_table_name: `aefc-prod-us-twc-b1bc.bi_star.dim_Employee_view` ;;
+  sql_table_name: `@{schema_name}.bi_star.dim_Employee_view` ;;
 
   # ── Identifiers ──
 
